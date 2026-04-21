@@ -1,27 +1,100 @@
-# Apple vs Intel Financial Analysis Dashboard
-## Executive Summary
+# 📊 Financial Analysis Dashboard (Streamlit)
 
-This project evaluates the financial performance of Apple and Intel using quarterly data.
+## 📌 Project Overview
+This project develops an **interactive financial analysis dashboard** using Streamlit to evaluate the performance of major technology firms.
 
-The analysis shows that Apple demonstrates strong growth and stable profitability, while Intel shows weaker performance.
+The dashboard allows users to dynamically explore financial data across multiple companies and metrics, supporting data-driven investment insights.
 
-Based on these findings, a long-short investment strategy is proposed: long Apple and short Intel.
-This project analyzes the financial performance of Apple and Intel using quarterly data from WRDS.
+---
 
-It provides an interactive dashboard built with Streamlit to support investment decision-making.
+## 🎯 Objectives
+- Analyze firm performance using financial data from WRDS (Compustat Quarterly)
+- Compare companies across multiple dimensions:
+  - Growth (Revenue)
+  - Profitability (Net Income)
+  - Efficiency (ROA)
+  - Earnings Quality (Profit Margin)
+- Build an interactive tool for financial visualization and decision-making
 
-## Features
-- Revenue and Net Income analysis
-- Company comparison
-- Growth rate visualization
-- Smoothed trend analysis
-## Tools Used
-- Python
-- Pandas
-- Streamlit
-## Data Source
-WRDS Compustat North America Fundamentals Quarterly  
-## How to Run
+---
+
+## 🗂 Data Source
+- **WRDS Compustat Quarterly (fundq)**
+- Sample period: 2015–Present
+- Firms included:
+  - Apple (AAPL)
+  - Intel (INTC)
+  - Microsoft (MSFT)
+  - NVIDIA (NVDA)
+  - AMD (AMD)
+
+---
+
+## ⚙️ Features
+
+### 🔹 Interactive Controls
+- Select up to **3 companies**
+- Select up to **3 financial metrics**
+- Toggle between:
+  - Single Company Analysis
+  - Multi-company Comparison
+
+---
+
+### 🔹 Financial Metrics
+- Revenue (Growth)
+- Net Income (Profitability)
+- Return on Assets (ROA)
+- Profit Margin
+
+---
+
+### 🔹 Visualization
+- Time-series line charts
+- Multi-company comparison
+- Dynamic updates based on user selection
+
+---
+
+### 🔹 Investment Ranking (Core Feature)
+The dashboard includes a **multi-factor ranking system**:
+
+- Uses the **latest available data**
+- Applies **z-score standardization**:
+
+  z = (x - mean) / std
+
+- Computes a **Total Score**:
+
+  Total Score = sum of standardized metrics
+
+- Outputs:
+  - Company ranking
+  - Recommended **Long position**
+  - Recommended **Short position**
+
+---
+
+## 🧠 Insights
+The tool highlights:
+- Strong performers (e.g., Apple, Microsoft)
+- High-growth firms (e.g., NVIDIA)
+- Weak or declining firms (e.g., Intel)
+
+Insights are dynamically generated based on selected companies and metrics.
+
+---
+
+## ⚠️ Data Limitations
+- Some firms (e.g., NVIDIA) may have **missing data for certain metrics**
+- Forward-filling is applied for visualization purposes
+- Rankings assume **equal weights across metrics**
+- Results depend on selected metrics and companies
+
+---
+
+## 🚀 How to Run
+
+### 1. Install dependencies
 ```bash
-streamlit run app.py
-
+pip install streamlit pandas
